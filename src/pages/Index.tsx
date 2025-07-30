@@ -12,7 +12,6 @@ import { ChatPanel } from "@/components/call/ChatPanel";
 import { ConversationHistory } from "@/components/history/ConversationHistory";
 import React, { useState, useRef } from "react";
 import { useDrag, useDrop } from 'react-dnd';
-import type { Identifier } from 'dnd-core';
 import { toast } from "sonner";
 
 // Define types
@@ -85,7 +84,7 @@ const DraggableAndDroppablePanel: React.FC<DraggablePanelProps> = ({ id, locatio
   const [{ handlerId }, drop] = useDrop<
     { id: PanelId; location: PanelLocation },
     void,
-    { handlerId: Identifier | null }
+    { handlerId: string | symbol | null }
   >({
     accept: ItemTypes.PANEL,
     collect(monitor) {
