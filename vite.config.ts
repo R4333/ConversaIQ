@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import path from 'node:path'
 import electron from 'vite-plugin-electron/simple'
 import react from '@vitejs/plugin-react'
-import renderer from 'vite-plugin-electron-renderer'
+// import renderer from 'vite-plugin-electron-renderer'
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vitejs.dev/config/
@@ -10,14 +10,14 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    renderer({
-      resolve: {
-        // C/C++ modules must be pre-bundle
-        serialport: { type: 'cjs' },
-        // `esm` modules only if Vite does not pre-bundle them correctly
-        got: { type: 'esm' },
-      },
-    }),
+    // renderer({
+    //   resolve: {
+    //     // C/C++ modules must be pre-bundle
+    //     serialport: { type: 'cjs' },
+    //     // `esm` modules only if Vite does not pre-bundle them correctly
+    //     got: { type: 'esm' },
+    //   },
+    // }),
     electron({
       main: {
         // Shortcut of `build.lib.entry`.

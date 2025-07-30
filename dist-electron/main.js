@@ -14,11 +14,11 @@ function createWindow() {
   win = new BrowserWindow({
     icon: path.join(process.env.VITE_PUBLIC, "electron-vite.svg"),
     webPreferences: {
-      preload: path.join(__dirname, "preload.mjs"),
-      nodeIntegrationInWorker: true,
-      contextIsolation: false,
-      nodeIntegration: true,
-      webSecurity: false
+      preload: path.join(__dirname, "preload.mjs")
+      // nodeIntegrationInWorker: true,
+      // contextIsolation: false,
+      // nodeIntegration: true,
+      // webSecurity: false,
     }
   });
   win.webContents.on("did-finish-load", () => {
